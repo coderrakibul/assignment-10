@@ -14,7 +14,7 @@ const Service = (props) => {
                     <Card.Text className='mb-5'>
                         {description}
                     </Card.Text>
-                    <Button className='checkout-btn' variant="primary">Checkout</Button>
+                    <Button className='checkout-btn w-75' variant="primary">Checkout</Button>
                 </Card.Body>
             </Card>
         </div>
