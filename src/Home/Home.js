@@ -6,10 +6,10 @@ import './Home.css'
 
 const Home = () => {
     const [services, setServices] = useState([]);
-    useEffect( () => {
+    useEffect(() => {
         fetch('services.json')
-        .then(res => res.json())
-        .then(data => setServices(data));
+            .then(res => res.json())
+            .then(data => setServices(data));
     }, []);
 
     return (
@@ -18,12 +18,12 @@ const Home = () => {
 
             <h2 className='text-center mb-4 mt-5'>My Services</h2>
             <div className='container service-container'>
-            {
-                services.map(service => <Service 
-                    key={service.id}
-                    service={service}
+                {
+                    services.map(service => <Service
+                        key={service.id}
+                        service={service}
                     ></Service>)
-            }
+                }
             </div>
         </div>
     );
