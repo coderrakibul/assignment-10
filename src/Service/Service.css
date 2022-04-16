@@ -1,0 +1,9 @@
+.service-card{
+    height:100%;
+    position:relative;
+}
+.checkout-btn{
+    position:absolute;
+    bottom: 20px;
+    
+}

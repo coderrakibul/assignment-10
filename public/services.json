@@ -1,0 +1,27 @@
+[
+   
+    {
+    "id": 1,
+    "name": "Pediatrics",
+    "price": 250,
+    "description": "At UCLA Health, we partner with families to deliver expert, compassionate care to infants, children and teens.",
+    "image": "https://img.freepik.com/free-photo/american-doctor-kids-little-children-s-hospital_10541-5052.jpg?size=626&ext=jpg&ga=GA1.2.326598921.1649667513"
+    },
+
+    {
+    "id": 2,
+    "name": "Cardiology",
+    "price": 320,
+    "description": "Our comprehensive heart services include general and preventive cardiology, cardiac testing and imaging, specialized cardiology and cardiac surgery.",
+    "image": "https://img.freepik.com/free-photo/young-male-psysician-with-patient-measuring-blood-pressure_1303-17878.jpg?size=626&ext=jpg&ga=GA1.2.326598921.1649667513"
+    },
+    
+    {
+    "id": 3,
+    "name": "Cancer Care",
+    "price": 400,
+    "description": "UCLA Health patients can expect comprehensive and individualized cancer care, delivered in convenient locations across Southern California.",
+    "image": "https://img.freepik.com/free-photo/view-from-back-mature-male-doctor-radiologist-explaining-results-mri-scanning-young-man-patient-showing-snapshot-with-images-analyzing-mri-scan-clinic-physician-reviewing-test-results_482921-6251.jpg?size=626&ext=jpg&ga=GA1.2.326598921.1649667513"
+    }
+    
+]

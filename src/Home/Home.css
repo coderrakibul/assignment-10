@@ -1,0 +1,24 @@
+.banner-img{
+    height:calc(100vh - 60px);
+}
+
+.service-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+    
+}
+
+
+@media only screen and (max-width: 576px){
+    .banner-img{
+        height:calc(100vh - 400px);
+    }
+    .service-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        
+        
+    }
+}
