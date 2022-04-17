@@ -1,15 +1,24 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Register.css'
+import auth from '../firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import './Register.css';
+
+
+
 
 const Register = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
 
+const handleSubmit = (event) => {
+    event.preventDefault();
+}
 
     return (
         <div className='form-container container d-block mt-5 mb-5 align-items-center'>
-            <Form className='register-form'>
+            <Form onSubmit={handleSubmit} className='register-form'>
             <h1 className='text-center mb-5 fw-bold '>Please Register</h1>
                 <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Control type="text" placeholder="Your Name" />
@@ -27,9 +36,15 @@ const Register = () => {
                 <p>Already have an accout? <Link  className="text-decoration-none fw-bold ms-2" to='/login'>Login</Link> </p>
                 </div>
               
-                <Button className='d-block mx-auto' variant="primary" type="submit">
+                <div className='d-flex justify-content-center'>
+                <Button variant="primary" type="submit" className='me-2'>
                     Register
                 </Button>
+                
+                <Button onClick={() => signInWithGoogle()} variant="primary" type="submit" className='ms-2'>
+                    Sign In With Google
+                </Button>
+                </div>
             </Form>
         </div>
     );
