@@ -10,6 +10,7 @@ import Login from './Login/Login';
 import NotFound from './NotFound/NotFound';
 import Register from './Register/Register';
 import RequireAuth from './RequireAuth/RequireAuth';
+import ResetPassword from './ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/checkout" element={<RequireAuth>
           <Checkout></Checkout>
         </RequireAuth>}></Route>
-
+          <Route path="/reset" element={<ResetPassword></ResetPassword>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

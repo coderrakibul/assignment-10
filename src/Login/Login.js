@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
+import './Login.css';
 
 
 const Login = () => {
@@ -58,6 +58,10 @@ const Login = () => {
 
                 <div>
                     <p>Not accout? <Link className="text-decoration-none fw-bold ms-2" to='/register'>Create account</Link> </p>
+                </div>
+
+                <div>
+                    <p>Forgot password? <Link className="text-decoration-none fw-bold ms-2" to='/reset'>Reset password</Link> </p>
                 </div>
 
                 <div className='d-flex justify-content-center'>
