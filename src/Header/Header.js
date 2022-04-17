@@ -18,7 +18,7 @@ const Header = () => {
 
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to="/">Dr. John Care</Navbar.Brand>
+                    <Navbar.Brand className='fw-bold' as={Link} to="/">Medi Care</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
