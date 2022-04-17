@@ -1,22 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
 
 
 const Login = () => {
-    const [signInWithGoogle, user] = useSignInWithGoogle(auth);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
 
 
-const handleSubmit = (event) => {
-    event.preventDefault();
-}
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
 
-if(user){
-    navigate('/checkout')
-}
+    if (error) {
+        return (
+            <div>
+                <p className='text-danger'>Error: {error.message}</p>
+            </div>
+        );
+    }
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+
+
+    if (user || googleUser) {
+        navigate('/checkout')
+    }
     return (
         <div className='form-container container d-block mt-5 mb-5 align-items-center'>
             <Form onSubmit={handleSubmit} className='register-form'>
@@ -25,11 +49,11 @@ if(user){
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                    <Form.Control type="email" placeholder="Your Email" />
+                    <Form.Control type="email" name="email" placeholder="Your Email" onChange={(event) => setEmail(event.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" name="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
                 </Form.Group>
 
                 <div>
@@ -37,7 +61,7 @@ if(user){
                 </div>
 
                 <div className='d-flex justify-content-center'>
-                    <Button variant="primary" type="submit">
+                    <Button onClick={() => signInWithEmailAndPassword(email, password)} variant="primary" type="submit">
                         Login
                     </Button>
 

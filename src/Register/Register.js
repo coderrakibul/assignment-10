@@ -42,7 +42,7 @@ const Register = () => {
     }
 
     if (user || googleUser) {
-        navigate('/checkout')
+        navigate('/login')
     }
 
     return (
