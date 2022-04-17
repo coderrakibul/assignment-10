@@ -2,22 +2,38 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './Register.css';
 
 
 
 
 const Register = () => {
-    const [signInWithGoogle, user] = useSignInWithGoogle(auth);
+
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
+    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
 
-    const handleSubmit = (event) => {
+
+
+    const handleSubmit = event => {
         event.preventDefault();
+        const name = event.target.name.vlaue;
+        const email = event.target.email.vlaue;
+        const password = event.target.name.vlaue;
+
+        createUserWithEmailAndPassword(email, password);
+
     }
 
-    if (user) {
+    if (user || googleUser) {
         navigate('/checkout')
     }
 
@@ -26,16 +42,16 @@ const Register = () => {
             <Form onSubmit={handleSubmit} className='register-form'>
                 <h1 className='text-center mb-5 fw-bold '>Please Register</h1>
                 <Form.Group className="mb-3" controlId="formBasicText">
-                    <Form.Control type="text" placeholder="Your Name" />
+                    <Form.Control type="text" name="name" placeholder="Your Name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                    <Form.Control type="email" placeholder="Your Email" />
+                    <Form.Control type="email" name="email" placeholder="Your Email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" name="password" placeholder="Password" />
                 </Form.Group>
                 <div>
                     <p>Already have an accout? <Link className="text-decoration-none fw-bold ms-2" to='/login'>Login</Link> </p>
