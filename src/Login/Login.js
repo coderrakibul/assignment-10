@@ -61,7 +61,7 @@ const Login = () => {
                 </div>
 
                 <div className='d-flex justify-content-center'>
-                    <Button onClick={() => signInWithEmailAndPassword(email, password)} variant="primary" type="submit">
+                    <Button onClick={() => signInWithEmailAndPassword(email, password)} variant="primary" type="submit" className='me-2'>
                         Login
                     </Button>
 
