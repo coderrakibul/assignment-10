@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+
 import './Register.css';
 
 
 
 
 const Register = () => {
+    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
 
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [
         createUserWithEmailAndPassword,
         user,
@@ -19,18 +23,22 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
-    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+    if (error) {
+        return (
+          <div>
+            <p>Error: {error.message}</p>
+          </div>
+        );
+      }
+      if (loading) {
+        return <p>Loading...</p>;
+      }
 
 
+ 
 
     const handleSubmit = event => {
         event.preventDefault();
-        const name = event.target.name.vlaue;
-        const email = event.target.email.vlaue;
-        const password = event.target.name.vlaue;
-
-        createUserWithEmailAndPassword(email, password);
-
     }
 
     if (user || googleUser) {
@@ -47,20 +55,23 @@ const Register = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                    <Form.Control type="email" name="email" placeholder="Your Email" />
+                    <Form.Control type="email" name="email" placeholder="Your Email"
+                    onChange={(event) => setEmail(event.target.value)}/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" name="password" placeholder="Password" />
+                    <Form.Control type="password" name="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
                 </Form.Group>
                 <div>
                     <p>Already have an accout? <Link className="text-decoration-none fw-bold ms-2" to='/login'>Login</Link> </p>
                 </div>
 
                 <div className='d-flex justify-content-center'>
-                    <Button variant="primary" type="submit" className='me-2'>
+                    <Button onClick={() => createUserWithEmailAndPassword(email, password)} variant="primary" type="submit" className='me-2'>
                         Register
                     </Button>
+
+
 
                     <Button onClick={() => signInWithGoogle()} variant="primary" type="submit" className='ms-2'>
                         Sign In With Google
