@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Service.css'
 
@@ -18,7 +18,7 @@ const Service = (props) => {
                     <Card.Text className='mb-5'>
                         {description}
                     </Card.Text>
-                    <Link to="/checkout" className='checkout-btn w-100 fw-bold' variant="primary">Checkout</Link>
+                    <Link to="/checkout" className='checkout-btn bg-primary text-white w-100'>Checkout</Link>
                 </Card.Body>
             </Card>
         </div>
