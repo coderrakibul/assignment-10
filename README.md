@@ -1,8 +1,25 @@
-# Getting Started with Create React App
+# Medi Care
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Click the link to visit the website [Medi Care](https://medi-care-f0674.web.app/).
 
-## Available Scripts
+## Project Description
+* Here is the login system
+* The register system
+* Protected page for authorized users
+* Email verification system
+* Smartly handled website
+* Total responsive design
+
+## The Technologys
+1. React router
+2. React bootstrap
+3. Firebase
+4. React firebase hooks
+5. Vanilla CSS
+
+
+
+
 
 In the project directory, you can run:
 
