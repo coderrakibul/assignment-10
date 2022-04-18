@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import banner from '../images/banner.webp';
+import Location from '../Location/Location';
 import Service from '../Service/Service';
 import './Home.css'
 
@@ -24,8 +25,11 @@ const Home = () => {
                         service={service}
                     ></Service>)
                 }
+                
             </div>
+            <Location></Location>
         </div>
+        
     );
 };
 
