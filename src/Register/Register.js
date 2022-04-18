@@ -6,12 +6,8 @@ import auth from '../firebase.init';
 
 import './Register.css';
 
-
-
-
 const Register = () => {
     const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
-
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -33,9 +29,6 @@ const Register = () => {
       if (loading) {
         return <p>Loading...</p>;
       }
-
-
- 
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -70,9 +63,7 @@ const Register = () => {
                     <Button onClick={() => createUserWithEmailAndPassword(email, password)} variant="primary" type="submit" className='me-2'>
                         Register
                     </Button>
-
-
-
+                    
                     <Button onClick={() => signInWithGoogle()} variant="primary" type="submit" className='ms-2'>
                         Sign In With Google
                     </Button>

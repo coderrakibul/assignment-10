@@ -36,8 +36,6 @@ const Login = () => {
         return <p>Loading...</p>;
     }
 
-
-
     if (user || googleUser) {
         navigate('/checkout')
     }
@@ -73,8 +71,7 @@ const Login = () => {
                         Sign In With Google
                     </Button>
                 </div>
-
-
+                
             </Form>
         </div>
     );
