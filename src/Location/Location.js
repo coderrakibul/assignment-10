@@ -5,7 +5,7 @@ const Location = () => {
     return (
         <div className='container mt-5'>
             <h2 className='text-center'>Visit Our Location</h2>
-            <div className='mt-4 d-flex justify-content-center'>
+            <div className='mt-4 d-flex justify-content-center w-100'>
                 <img className='w-75' src={location} alt="" />
             </div>
         </div>
